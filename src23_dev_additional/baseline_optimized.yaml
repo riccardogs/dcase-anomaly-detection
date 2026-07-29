@@ -1,0 +1,28 @@
+dev_directory: /disks/disk1/rsasu/DCASE2020_additional
+eval_directory: /disks/disk1/rsasu/DCASE2020_eval
+model_directory: ./model23_dev_additional
+result_directory: ./result23_dev_additional
+result_file: result_eval_23_dev_additional.csv
+
+max_fpr: 0.1
+
+feature:
+  n_mels: 128
+  frames: 5
+  n_fft: 1024
+  hop_length: 512
+  power: 2.0
+
+model:
+  type: dense_ae_v2
+
+fit:
+  epochs: 50
+  batch_size: 512
+  shuffle: true
+  validation_split: 0.1
+  verbose: 1
+  early_stopping_patience: 15
+  reduce_lr_factor: 0.5
+  reduce_lr_patience: 8
+  min_lr: 1.0e-07
